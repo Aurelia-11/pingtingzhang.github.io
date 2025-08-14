@@ -245,51 +245,20 @@
         .project {
             margin-bottom: 3rem;
         }
-        .project-images {
-            width: 100%;
-            margin-bottom: 1.5rem;
-            position: relative;
-            text-align: center;
+        .research-projects .project-images {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 10px;
         }
-        .project-image {
-            max-width: 100%;
-            max-height: 500px;
-            object-fit: contain;
+        
+        .research-projects .project-image {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
             border-radius: 6px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            display: none;
-        }
-        .project-image.active {
-            display: inline-block;
-            animation: fadeIn 0.5s;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .carousel-controls {
-            position: absolute;
-            bottom: 15px;
-            left: 0;
-            right: 0;
-            text-align: center;
-        }
-        .carousel-dots {
-            display: inline-block;
-            background: rgba(255,255,255,0.7);
-            padding: 5px 10px;
-            border-radius: 20px;
-        }
-        .dot {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background: #ccc;
-            border-radius: 50%;
-            margin: 0 3px;
-            cursor: pointer;
-            transition: background 0.3s;
         }
         .dot.active {
             background: var(--secondary-color);
@@ -707,22 +676,11 @@
                                <i class="fas fa-atom" style="color:#FF9AA2;"></i>
                                 <span data-en="Material Synthesis and Properties" data-zh="材料制备与性能">Material Synthesis and Properties</span>
                         </h3>
-                        <div class="project-images" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
-    <img src="images/research/material-1.jpg" class="project-image active" 
-         style="width:100%; height:200px; object-fit:cover; border-radius:6px;">
-    <img src="images/research/material-2.jpg" class="project-image"
-         style="width:100%; height:200px; object-fit:cover; border-radius:6px;">
-    <img src="images/research/material-3.jpg" class="project-image" 
-         style="width:100%; height:200px; object-fit:cover; border-radius:6px;">
-</div>
-                <div class="carousel-controls">
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="showSlide(0)"></span>
-                                    <span class="dot" onclick="showSlide(1)"></span>
-                                    <span class="dot" onclick="showSlide(2)"></span>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="project-images">
+                    <img src="images/research/material-1.jpg" class="project-image" loading="lazy">
+                    <img src="images/research/material-2.jpg" class="project-image" loading="lazy">
+                    <img src="images/research/material-3.jpg" class="project-image" loading="lazy">
+                </div>
                         <div class="project-details">
                             <h3 data-en="Thin-layered 2M WS₂" data-zh="二维薄层金属相2M WS₂">Thin-layered 2M WS₂</h3>
                             <p data-en="<strong>1) Synthesis</strong>: Fabricated large-area (>20 μm) WS<sub>2</sub> with different layer numbers via optimized mechanical exfoliation."
@@ -745,22 +703,11 @@
                            <i class="fas fa-microchip" style="color:#B5EAD7;"></i>
                          <span data-en="Device Design and Fabrication" data-zh="器件设计与制作">Device Design and Fabrication</span>
                      </h3>
-                        <div class="project-images" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
-    <img src="images/research/device-1.jpg" class="project-image active" 
-         style="width:100%; height:200px; object-fit:cover; border-radius:6px;">
-    <img src="images/research/device-2.jpg" class="project-image"
-         style="width:100%; height:200px; object-fit:cover; border-radius:6px;">
-    <img src="images/research/device-3.jpg" class="project-image" 
-         style="width:100%; height:200px; object-fit:cover; border-radius:6px;">
-</div>
-                            <div class="carousel-controls">
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="showSlide(3)"></span>
-                                    <span class="dot" onclick="showSlide(4)"></span>
-                                    <span class="dot" onclick="showSlide(5)"></span>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="project-images">
+                    <img src="images/research/device-1.jpg" class="project-image" loading="lazy">
+                    <img src="images/research/device-2.jpg" class="project-image" loading="lazy">
+                    <img src="images/research/device-3.jpg" class="project-image" loading="lazy">
+                </div>
                         <div class="project-details">
                             <h3 data-en="Device and System Development" 
                                     data-zh="装置和器件开发">
@@ -790,22 +737,11 @@
                            <i class="fas fa-battery-three-quarters" style="color:#C7CEEA;"></i>
                            <span data-en="Ion Battery Applications" data-zh="离子电池应用">Ion Battery Applications</span>
                     </h3>
-                       <div class="project-images" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
-    <img src="images/research/battery-1.jpg" class="project-image active" 
-         style="width:100%; height:200px; object-fit:cover; border-radius:6px;">
-    <img src="images/research/battery-2.jpg" class="project-image"
-         style="width:100%; height:200px; object-fit:cover; border-radius:6px;">
-    <img src="images/research/battery-3.jpg" class="project-image" 
-         style="width:100%; height:200px; object-fit:cover; border-radius:6px;">
-</div>
-                            <div class="carousel-controls">
-                                <div class="carousel-dots">
-                                    <span class="dot active" onclick="showSlide(6)"></span>
-                                    <span class="dot" onclick="showSlide(7)"></span>
-                                    <span class="dot" onclick="showSlide(8)"></span>
-                                </div>
-                            </div>
-                        </div>
+                       <div class="project-images">
+                    <img src="images/research/battery-1.jpg" class="project-image" loading="lazy">
+                    <img src="images/research/battery-2.jpg" class="project-image" loading="lazy">
+                    <img src="images/research/battery-3.jpg" class="project-image" loading="lazy">
+                </div>
                         <div class="project-details">
                             <h3 data-en="Battery Mechanism Study" data-zh="电池机制研究">Battery Mechanism Study</h3>
                             <p data-en="Through integrated multi-field in situ characterization, we systematically investigated the structural evolution and phase transition behavior of electrode materials to elucidate ion intercalation/deintercalation mechanisms. In situ electrochemical-optical microscopy enabled real-time observation of morphological dynamics and ion transport pathways, while synchronized Raman-electrochemical measurements provided further analysis of crystalline phase transformations and electrode-ion interactions."
