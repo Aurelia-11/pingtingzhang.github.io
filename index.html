@@ -129,28 +129,24 @@
             padding: 2rem 3rem;
         }
         section {
-            margin-bottom: 3rem;
-            padding: 30px;
+            margin-bottom: 0rem;
+            padding: 5px 30px;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            border-radius: 0px;
+            box-shadow: none;
             transition: transform 0.3s;
-        }
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
         
         /* Updated Icon Styles */
         .section-icon {
-            font-size: 1.4em;
-            margin-right: 12px;
+            font-size: 1em;
+            margin-right: 8px;
             vertical-align: middle;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 28px;
-            height: 28px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
             background-color: rgba(255,255,255,0.3);
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -167,12 +163,12 @@
         }
         
         h2 {
-            color: var(--primary-color);
-            font-size: 1.8rem;
-            margin-top: 0;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--secondary-color);
+           color: var(--primary-color);
+           font-size: 1.3rem;        /* 减小标题字体大小 */
+           margin-top: 0.3rem;       /* 减小上方间距 */
+           margin-bottom: 0.3rem;    /* 减小下方间距 */
+           padding-bottom: 0.1rem;   /* 减小下划线间距 */
+           border-bottom: 1px solid var(--secondary-color); /* 减细下划线 */
         }
         h3 {
             color: var(--primary-color);
@@ -209,12 +205,6 @@
     object-fit: contain; /* 保持比例完整显示 */
     padding: 0; /* 清除图片默认内边距 */
     display: block; /* 消除基线对齐问题 */
-}
-   .education-item {
-    padding-left: 80px;
-    min-height: 60px;
-    position: relative;
-    box-sizing: border-box; /* 新增：防止padding影响尺寸计算 */
 }
         .edu-details {
             position: relative;
@@ -493,7 +483,7 @@
                 padding: 1rem;
             }
             section {
-                padding: 20px;
+                padding: 10px 15px;
             }
             .education-item {
                 padding-left: 0;
