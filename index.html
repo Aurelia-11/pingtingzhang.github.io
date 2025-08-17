@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Profile</title>
+    <!-- Load Font Awesome icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            transition: all 0.3s;
+            background-color: #f9f9f9;
+        }
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* Sidebar - White background */
+        .sidebar {
+            width: 300px;
+            padding: 2rem 1.5rem;
+            background: white;
+            color: #333;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            border-right: 1px solid #eee;
+        }
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: none;
+            margin: 0 auto 1.5rem;
+            display: block;
+        }
+        .sidebar h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            color: var(--primary-color);
+        }
+        
+        /* Icon styles */
+        .sidebar i.fas {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+            color: inherit;
+        }
+        .sidebar .contact a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .sidebar .location,
+        .sidebar .academic-links,
+        .sidebar .contact {
+            margin: 1.2rem 0;
+        }
+        
+        .sidebar p {
+            margin: 0.8rem 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+        .academic-links {
+            margin: 1.5rem 0;
+        }
+        .academic-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem 0 0.5rem 0;
+            transition: color 0.3s;
+        }
+        .academic-links a:hover {
+            color: var(--accent-color);
+        }
+        .cv-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 8px 15px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            text-align: center;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        .cv-link:hover {
+            background: var(--accent-color);
+        }
+        
+        /* Language Toggle */
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        /* Main Content */
+        .main-content {
+            width: calc(100% - 300px);
+            margin-left: 300px;
+            padding: 2rem 3rem;
+        }
+        section {
+            margin-bottom: 0rem;
+            padding: 5px 30px;
+            background: white;
+            border-radius: 0px;
+            box-shadow: none;
+            transition: transform 0.3s;
+        }
+        
+        /* Updated Icon Styles */
+        .section-icon {
+              font-size: 1em;
+              margin-right: 8px;
+              vertical-align: middle;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              background-color: rgba(255,255,255,0.3);
+              text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+              position: relative;
+              top: -1px; 
+        }
+        
+        /* News fireworks animation */
+        #news h2 .section-icon:hover {
+            animation: sparkle 0.6s;
+        }
+        @keyframes sparkle {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.5) rotate(30deg); }
+            100% { transform: scale(1); }
+        }
+        
+        h2 {
+           color: var(--primary-color);
+           font-size: 1.3rem;       
+           margin-top: 0.3rem;    
+           margin-bottom: 0.3rem;   
+           padding-bottom: 0.1rem;   
+           border-bottom: 1px solid rgba(0,0,0,0.08); 
+        }
+        h3 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+        }
+        
+        /* Education */
+        .education-item {
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 0;
+            min-height: auto;
+        }
+        .edu-logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.edu-logo img {
+    width: 100%; 
+    height: 100%;
+    object-fit: contain; 
+    padding: 0; 
+    display: block; 
+}
+        .edu-details {
+            position: relative;
+            width: 100%; 
+            padding-left: 0; 
+             margin-left: 0;
+        }
+        .edu-details h3 {
+            margin-top: 0;
+            margin-bottom: 0.3rem;
+        }
+        .edu-details p {
+            margin: 0.3rem 0;
+            color: #555;
+        }
+        
+        /* News List */
+        .news-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .news-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 30px;
+        }
+        .news-list li:before {
+            content: "";
+            background: url('icons/firework.svg') no-repeat;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+        
+        .research-projects {
+            margin-top: 2rem;
+        }
+        .project {
+            margin-bottom: 3rem;
+        }
+        .research-projects .project-images {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+        
+        .research-projects .project-image {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .dot.active {
+            background: var(--secondary-color);
+        }
+        .project-details {
+            width: 100%;
+        }
+        .project-details h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        .project-details p {
+            margin: 0.8rem 0;
+        }
+        
+        /* Publications */
+        .publication {
+            display: flex;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        .pub-image {
+            width: 150px;
+            min-width: 150px;
+            margin-right: 1.5rem;
+        }
+        .pub-image img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .pub-details {
+            flex: 1;
+        }
+        .pub-details h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .pub-details h3 a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .pub-details h3 a:hover {
+            color: var(--secondary-color);
+        }
+        .authors {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 0.8rem;
+        }
+        .abstract {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        .contribution, .takeaways {
+            background: #f5f7fa;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        .contribution h4, .takeaways h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        .patents {
+            margin-top: 2rem;
+        }
+        .patents h3 {
+            margin-bottom: 1rem;
+        }
+        .patents ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .patents li {
+            margin-bottom: 0.8rem;
+        }
+        .patents a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .patents a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        /* Honors and Awards */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .award {
+            display: flex;
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .award:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .award-image {
+            width: 100px;
+            min-width: 100px;
+            height: 100px;
+            overflow: hidden;
+            background: #f5f7fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .award-image img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        .award-details {
+            padding: 15px;
+            flex: 1;
+        }
+        .award-details h3 {
+            margin-top: 0;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+        .award-details p {
+            margin: 0.3rem 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Activities - Horizontal Scroll Gallery */
+        .activity-images-container {
+            overflow-x: auto;
+            white-space: nowrap;
+             padding: 10px 0;
+         
+           scrollbar-width: thin;
+           scrollbar-color: var(--secondary-color) #f1f1f1;
+       
+          -ms-overflow-style: -ms-autohiding-scrollbar;
+           }
+           
+          .activity-images-container::-webkit-scrollbar {
+    height: 8px;
+      }
+           .activity-images-container::-webkit-scrollbar-track {
+                  background: #f1f1f1;
+                  border-radius: 10px;
+       }
+          .activity-images-container::-webkit-scrollbar-thumb {
+                 background-color: var(--secondary-color);
+                 border-radius: 10px;
+      }
+        .activity-images {
+            display: inline-flex;
+            gap: 10px;
+        }
+        .activity-image {
+            display: inline-block;
+            width: 200px;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 4px;
+            background: #f5f7fa;
+        }
+        .activity-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        .activity-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                position: static;
+                height: auto;
+            }
+            .main-content {
+                width: 100%;
+                margin-left: 0;
+                padding: 2rem;
+            }
+        }
+            .image-viewer {
+                display: none;
+                position: fixed;
+                z-index: 2000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+          }
+
+         .project-image, .award-image img, .activity-image img {
+               cursor: pointer;
+               user-select: none;
+               -webkit-user-drag: none;
+         }
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 1rem;
+            }
+            section {
+                padding: 10px 15px;
+            }
+            .education-item {
+                padding-left: 0;
+                padding-top: 70px;
+            }
+            .edu-logo {
+                top: 0;
+                left: 0;
+            }
+            .pub-image {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            .publication {
+                flex-direction: column;
+            }
+           .image-viewer .viewer-content {
+               max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Language Toggle Button -->
+        <div class="language-toggle" id="languageToggle">中文</div>
+
+        <!-- Left Sidebar - White background -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="images/profile/photo.jpg" alt="Profile Photo" class="profile-photo" loading="lazy">
+                <h1 data-en="Pingting Zhang" data-zh="张平婷">Pingting Zhang</h1>
+                <p>English Name: Aurelia</p>
+                <p><i class="fas fa-birthday-cake"></i> 1997.02.18</p>
+                
+                <div class="bio">
+                    <p><i class="fas fa-user-tie"></i> 
+                        <span data-en="Pingting Zhang, Master's graduate and Lithography R&D Engineer at CXMT (a leading DRAM semiconductor company), is currently applying for a PhD program to continue her academic journey and pursue her research ambitions" 
+                              data-zh="张平婷，硕士毕业于西北工业大学，现任CXMT（领先的DRAM半导体公司）光刻研发工程师，目前正在申请博士项目以继续她的学术旅程并追求研究抱负">
+                              Pingting Zhang, Master's graduate and Lithography R&D Engineer at CXMT (a leading DRAM semiconductor company), is currently applying for a PhD program to continue her academic journey and pursue her research ambitions
+                        </span>
+                    </p>
+                </div>
+                
+                <div class="location">
+                    <p><i class="fas fa-map-marker-alt"></i> Hefei, China</p>
+                </div>
+
+                <div class="academic-links">
+                    <p><i class="fas fa-graduation-cap"></i> <a href="https://scholar.google.com/citations?user=p0U5sbIAAAAJ&hl=en" target="_blank">Google Scholar</a></p>
+                </div>
+
+                <div class="contact">
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:pingtingzhang@mail.nwpu.edu.cn">pingtingzhang@mail.nwpu.edu.cn</a></p>
+                    <p><i class="fas fa-phone-alt"></i> +86 15010708109</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Main Content Area -->
+        <main class="main-content">
+            <!-- About Me -->
+            <section id="about">
+                <h2>
+                    <span class="section-icon" style="color: #FF9AA2;">👩‍🔬</span>
+                    <span data-en="About Me" data-zh="关于我">About Me</span>
+                </h2>
+                <p data-en="I graduated with a bachelor's degree in Polymer Materials and Engineering (Elite Class) from the School of Materials Science and Engineering, Beijing University of Chemical Technology, and a master's degree from the Institute of Flexible Electronics, Northwestern Polytechnical University." 
+                     data-zh="我本科就读于北京化工大学材料学院高分子材料与工程精英班，硕士毕业于西北工业大学柔性电子研究院。">
+                     I graduated with a bachelor's degree in Polymer Materials and Engineering (Elite Class) from the School of Materials Science and Engineering, Beijing University of Chemical Technology, and a master's degree from the Institute of Flexible Electronics, Northwestern Polytechnical University.
+</p>
+                <p data-en="Research Interests: 2D materials (TMDs) | Micro/nano-fabrication | Nano-devices | In-situ characterization | Ion batteries"
+                      data-zh="研究方向：二维材料（TMDs）| 微纳加工 | 微纳器件 | 原位表征 | 离子电池">
+                      Research Interests: 2D materials (TMDs) | Micro/nano-fabrication | Nano-devices | In-situ characterization | Ion batteries
+                </p>
+                <p><a href="documents/cv.pdf" style="color: var(--secondary-color); text-decoration: none; font-weight: 500;" target="_blank" data-en="View my full CV →" data-zh="查看完整简历 →">View my full CV →</a></p>
+            </section>
+
+            <!-- Education -->
+            <section id="education">
+                <h2>
+                    <span class="section-icon" style="color: #FFB7B2;">🎓</span>
+                    <span data-en="Education" data-zh="教育背景">Education</span>
+                </h2>
+                
+                <div class="education-item">
+                    <div class="edu-details">
+                        <h3 data-en="2023.5-2024.8, <a href='https://www.nwpu.edu.cn/' target='_blank'>Northwestern Polytechnical University</a> (985), Research Assistant"
+                                data-zh="2023.5-2024.8, <a href='https://www.nwpu.edu.cn/' target='_blank'>西北工业大学</a> (985), 科研助理">
+                                2023.5-2024.8, <a href="https://www.nwpu.edu.cn/" target="_blank">Northwestern Polytechnical University</a> (985), Research Assistant
+                          </h3>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="edu-details">
+                           <h3 data-en="2020.8-2023.5, <a href='https://www.nwpu.edu.cn/' target='_blank'>Northwestern Polytechnical University</a> (985), MPhil in Engineering (Rank: 3/114)"
+                                   data-zh="2020.8-2023.5, <a href='https://www.nwpu.edu.cn/' target='_blank'>西北工业大学</a> (985), 工学硕士 (排名:3/114)">
+                                   2020.8-2023.5, <a href="https://www.nwpu.edu.cn/" target="_blank">Northwestern Polytechnical University</a> (985), MPhil in Engineering (Rank: 3/114)
+                            </h3>
+
+                           <p data-en="Supervisors: <a href='https://scholar.google.com/citations?user=c743VFkAAAAJ&hl=en&oi=sra' target='_blank'>Prof. Cao Guan</a>, <a href='https://scholar.google.com/citations?user=1JgWqXQAAAAJ' target='_blank'>Associate Prof. Xiangye Liu</a>"
+                                 data-zh="导师: <a href='https://scholar.google.com/citations?user=c743VFkAAAAJ&hl=en&oi=sra' target='_blank'>官操教授</a>, <a href='https://scholar.google.com/citations?user=1JgWqXQAAAAJ' target='_blank'>刘向晔副教授</a>">
+                                 Supervisors: <a href="https://scholar.google.com/citations?user=c743VFkAAAAJ&hl=en&oi=sra" target="_blank">Prof. Cao Guan</a>, 
+                               <a href="https://scholar.google.com/citations?user=Vb0wWF0AAAAJ&hl=en" target="_blank">Associate Prof. Xiangye Liu</a>
+                           </p>
+                   </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="edu-details">
+                        <h3 data-en="2015.8-2019.6, <a href='https://www.buct.edu.cn/' target='_blank'>Beijing University of Chemical Technology</a> (211), Bachelor in Engineering (Rank: 11/443)" 
+                                data-zh="2015.8-2019.6, <a href='https://www.buct.edu.cn/' target='_blank'>北京化工大学</a> (211), 工学学士 (排名:11/443)">
+                                2015.8-2019.6, <a href="https://www.buct.edu.cn/" target="_blank">Beijing University of Chemical Technology</a> (211), Bachelor in Engineering (Rank: 11/443)
+                          </h3>
+                        <p data-en="Major: Polymer Materials and Engineering (Elite Class)"
+                              data-zh="专业: 高分子材料与工程 (精英班)">
+                              Major: Polymer Materials and Engineering (Elite Class)
+                         </p>
+                        <p data-en="Core Courses: Organic Chemistry, Physical Chemistry, Polymer Chemistry and Physics, Materials Characterization, Fundamentals of Mechanical Design, Applied Electrical Engineering, Optoelectronic Materials, Advanced Energy Materials, C++"
+                              data-zh="主修课程: 有机化学, 物理化学, 高分子化学和物理, 材料表征, 机械设计基础, 应用电工学, 光电材料, 新能源材料, C++">
+                              Core Courses: Organic Chemistry, Physical Chemistry, Polymer Chemistry and Physics, Materials Characterization, Fundamentals of Mechanical Design, Applied Electrical Engineering, Optoelectronic Materials, Advanced Energy Materials, C++
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- News -->
+            <section id="news">
+                <h2>
+                          <span class="section-icon" style="color: #FFDAC1;">✨</span>
+                          <span data-en="News" data-zh="消息动态">News</span>
+                </h2>
+                <ul class="news-list">
+                       <li data-en="🎉 2024.11: Received an offer as Lithography Engineer from Intel"
+                            data-zh="🎉 2024.11: 获得Intel公司光刻工程师的offer">
+                            🎉 2024.11: Received an offer as Lithography Engineer from Intel
+                        </li>
+                        <li data-en="🎉 2024.01: Paper accepted by Nature Communications (IF: 15.7)"
+                             data-zh="🎉 2024.01: 论文被《Nature Communications》接收 (影响因子: 15.7)">
+                            🎉 2024.01: Paper accepted by Nature Communications (IF: 15.7)
+                         </li>
+                         <li data-en="🎉 2022.11: Selected as the only student from the institute to join NWPU's Elite Program and elected as class monitor"
+                               data-zh="🎉 2022.11: 作为学院唯一的学生，被选加入西北工业大学领军人才计划-翼鲲计划并担任班长">
+                              🎉 2022.11: Selected as the only student from the institute to join NWPU's Elite Program and elected as class monitor
+                          </li>
+                          <li data-en="🎉 2022.04: Granted 2 patents for device design and in-situ multi-field testing"
+                               data-zh="🎉 2022.04: 获得2篇器件设计和原位多场表征相关专利">
+                              🎉 2022.04: Granted 2 patents for device design and in-situ multi-field testing
+                           </li>
+                           <li data-en="🎉 2020.03: Received the master's offer from Institute of Flexible Electronics of Northwestern Polytechnical University"
+                            data-zh="🎉 2020.03: 以第二名被西北工业大学柔性电子研究院学术型硕士录取">
+                            🎉 2020.03: Received the master's offer from Institute of Flexible Electronics of Northwestern Polytechnical University
+                          </li>
+                          <li data-en="🎉 2018.11: Received the National Scholarship from Ministry of Education, China"
+                               data-zh="🎉 2018.11: 获得由国家教育部提供的国家奖学金">
+                                🎉 2018.11: Received the National Scholarship from Ministry of Education, China
+                         </li>
+                         <li data-en="🎉 2015.07: Admitted to BUCT's Elite Polymer Materials Program as the only student (top 0.5%) from the province among all Gaokao candidates"
+                              data-zh="🎉 2015.07: 作为全省唯一一名学生（前0.5%）被北京化工大学高分子材料精英计划录取">
+                             🎉 2015.07: Admitted to BUCT's Elite Polymer Materials Program as the only student (top 0.5%) from the province among all Gaokao candidates
+                         </li>
+                  </ul>
+            </section>
+
+            <!-- Research Experience -->
+            <section id="research">
+                <h2>
+                    <span class="section-icon" style="color: #E2F0CB;">🔬</span>
+                    <span data-en="Research Experience" data-zh="研究经历">Research Experience</span>
+                </h2>
+                <div class="research-projects">
+                    <div class="project">
+                         <h3 style="margin-top:0; color:var(--primary-color); border-bottom:1px solid rgba(0,0,0,0.08); padding-bottom:8px;">
+                               <i class="fas fa-atom" style="color: inherit;"></i>
+                                <span data-en="Materials" data-zh="材料">Materials</span>
+                        </h3>
+                        <div class="project-images">
+                    <img src="images/research/material-1.jpg" class="project-image" loading="lazy">
+                    <img src="images/research/material-2.jpg" class="project-image" loading="lazy">
+                    <img src="images/research/material-3.jpg" class="project-image" loading="lazy">
+                </div>
+                        <div class="project-details">
+                            <h3 data-en="Thin-layered 2M WS₂" data-zh="二维薄层金属相2M WS₂">Thin-layered 2M WS₂</h3>
+                            <p data-en="<strong>Synthesis</strong>: Prepared large-area (>20 μm) WS₂ with controlled layer numbers via optimised mechanical exfoliation, achieving reproducible thin-layered structures, and fabricated wafer-scale monolayer MoS₂ by CVD."
+                                 data-zh="<strong>制备</strong>：采用优化的机械剥离方法制备了大面积（>20 μm）、可控层数的 WS₂，实现了薄层结构的可重复制备；同时利用化学气相沉积（CVD）方法制备了大面积单层 MoS₂。">
+                                                 <strong>Synthesis</strong>: Prepared large-area (>20 μm) WS₂ with controlled layer numbers via optimised mechanical exfoliation, achieving reproducible thin-layered structures, and fabricated wafer-scale monolayer MoS₂ by CVD.
+                            </p>
+                            <p data-en="<strong>Stability</strong>: Through systematic investigation (Raman, XRD, TEM, AFM) and theoretical simulation of the phase transition behaviour of 2M WS₂, demonstrated that ultrathin 2M WS₂ possesses significantly higher intrinsic thermal stability than its bulk counterparts."
+                                 data-zh="<strong>稳定性</strong>：通过对 2M WS₂ 相变行为的系统研究（Raman, XRD, TEM, AFM）和理论模拟，证实超薄 2M WS₂ 具有显著高于块体的本征热稳定性。">
+                                                  <strong>Stability</strong>: Through systematic investigation (Raman, XRD, TEM, AFM) and theoretical simulation of the phase transition behaviour of 2M WS₂, demonstrated that ultrathin 2M WS₂ possesses significantly higher intrinsic thermal stability than its bulk counterparts.
+                            </p>
+                            <p data-en="<strong>Key Achievements</strong>: 1 SCI paper in Nature Communications (IF=15.7)；1 patent (CN116657246A)"
+                                  data-zh="<strong>成果发表</strong>：在Nature Communications上发表了1篇论文（影响因子15.7）；申请并获得了一项专利">
+                                  <strong>Key Achievements</strong>: 1 SCI paper in Nature Communications (IF=15.7)；1 patent (CN116657246A)
+                              </p>
+                        </div>
+                    </div>
+                    
+                    <div class="project">
+                     <h3 style="margin-top:0; color:var(--primary-color); border-bottom:1px solid rgba(0,0,0,0.08); padding-bottom:8px;">
+                           <i class="fas fa-microchip" style="color:#B5EAD7;"></i>
+                         <span data-en="Devices" data-zh="器件">Devices</span>
+                     </h3>
+                        <div class="project-images">
+                    <img src="images/research/device-1.jpg" class="project-image" loading="lazy">
+                    <img src="images/research/device-2.jpg" class="project-image" loading="lazy">
+                    <img src="images/research/device-3.jpg" class="project-image" loading="lazy">
+                </div>
+                        <div class="project-details">
+                            <h3 data-en="Device and System Development" 
+                                    data-zh="装置和器件开发">
+                                    Device and System Development
+                             </h3>
+                             <p data-en="<strong>Integrated Micro/Nano Device Platform</strong>: Independently designed and established a full-process system combining real-time in-situ observation, precision lithography, micro-transfer, and multi-modal characterisation, overcoming the limitations of dispersed setups."
+                                  data-zh="<strong>微/纳器件集成平台</strong>：自主设计并建立了一个覆盖全流程的系统，集成了实时原位观测、高精度光刻、微区转移与多模态表征，克服了传统分散设备与异步操作的局限。">
+                                                  <strong>Integrated Micro/Nano Device Platform</strong>: Independently designed and established a full-process system combining real-time in-situ observation, precision lithography, micro-transfer, and multi-modal characterisation, overcoming the limitations of dispersed setups.
+                                </p>
+                                <p data-en="<strong>Multi-field Coupled In-situ Characterisation</strong>: Developed an electrochemical–optical–Raman synchronous testing device for micro/nano batteries, achieving real-time dynamic correlation between structural evolution and electrochemical performance."
+                                      data-zh="<strong>多场耦合原位表征</strong>：研发了电化学–光学–拉曼同步原位测试装置，实现了微/纳电池中材料结构演化与电化学性能的实时动态关联分析。">
+                                                        <strong>Multi-field Coupled In-situ Characterisation</strong>: Developed an electrochemical–optical–Raman synchronous testing device for micro/nano batteries, achieving real-time dynamic correlation between structural evolution and electrochemical performance.
+                                   </p> 
+                                   <p data-en="<strong>Observable Aqueous Micro/Nano Battery</strong>: Constructed a transmission-type battery device with in-situ windows, optimised interfaces, and controlled micro/nano fabrication, solving the 'black box' problem in conventional characterisation."
+                                         data-zh="<strong>可观测水系微/纳电池</strong>：构建了具有原位观测窗口的透射型电池器件，并通过界面优化与微/纳加工工艺控制，解决了传统电池表征中的'黑箱'难题。">
+                                                         <strong>Observable Aqueous Micro/Nano Battery</strong>: Constructed a transmission-type battery device with in-situ windows, optimised interfaces, and controlled micro/nano fabrication, solving the 'black box' problem in conventional characterisation.
+                                     </p>
+                                     <p data-en="<strong>Key Achievements</strong>: 2 patents (CN114384142A, CN114354726A)"
+                                           data-zh="<strong>主要成果</strong>：2项专利 (CN114384142A, CN114354726A)">
+                                      <strong>Key Achievements</strong>: 2 patents (CN114384142A, CN114354726A)
+                                      </p>
+                        </div>
+                    </div>
+                    
+                    <div class="project">
+                    <h3 style="margin-top:0; color:var(--primary-color); border-bottom:1px solid rgba(0,0,0,0.08); padding-bottom:8px;">
+                           <i class="fas fa-battery-three-quarters" style="color:#C7CEEA;"></i>
+                           <span data-en="Ion Batteries" data-zh="离子电池">Ion Batteries</span>
+                    </h3>
+                       <div class="project-images">
+                    <img src="images/research/battery-1.jpg" class="project-image" loading="lazy">
+                    <img src="images/research/battery-2.jpg" class="project-image" loading="lazy">
+                    <img src="images/research/battery-3.jpg" class="project-image" loading="lazy">
+                </div>
+                        <div class="project-details">
+                            <h3 data-en="Battery Mechanism Study" data-zh="电池机制研究">Battery Mechanism Study</h3>
+                            <p data-en="<strong>Electrode Performance Exploration</strong>: Based on the micro/nano battery platform, employed in-situ electrochemical–optical microscopy and in-situ electrochemical–Raman spectroscopy to investigate the structural evolution and phase transition behaviour of electrode materials, directly linking material dynamics to device performance."
+                                  data-zh="<strong>电极性能探索</strong>：依托微纳电池平台，利用原位电化学–光学显微镜和原位电化学–拉曼手段研究了电极材料的结构演化与相变行为，将材料动态与器件性能直接联系起来。">
+                                                  <strong>Electrode Performance Exploration</strong>: Based on the micro/nano battery platform, employed in-situ electrochemical–optical microscopy and in-situ electrochemical–Raman spectroscopy to investigate the structural evolution and phase transition behaviour of electrode materials, directly linking material dynamics to device performance.
+                             </p>
+                             <p data-en="<strong>Ion Intercalation Mechanism</strong>: Leveraging the micro/nano scale and multi-field in-situ characterisation, directly observed ion intercalation dynamics and pathway variations, and tracked crystalline phase transitions and electrode–ion interactions. Further electrochemical measurements will be conducted to quantitatively explore the kinetics of ion insertion and extraction."
+                                   data-zh="<strong>离子插层机制</strong>：基于微纳尺度，结合多场原位表征，直观地观察到离子插层的动态过程及路径变化，跟踪了晶相转变与电极–离子相互作用。后续将通过电化学表征进一步量化离子插入/脱出的动力学过程。">
+                                                  <strong>Ion Intercalation Mechanism</strong>: Leveraging the micro/nano scale and multi-field in-situ characterisation, directly observed ion intercalation dynamics and pathway variations, and tracked crystalline phase transitions and electrode–ion interactions. Further electrochemical measurements will be conducted to quantitatively explore the kinetics of ion insertion and extraction.
+                             </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Publications -->
+            <section id="publications">
+                <h2>
+                    <span class="section-icon" style="color: #B5EAD7;">📄</span>
+                    <span data-en="Publications" data-zh="发表论文">Publications</span>
+                </h2>
+                
+                <div class="publication">
+                    <div class="pub-image">
+                        <img src="images/publications/paper1.jpg" alt="Paper Figure" loading="lazy">
+                    </div>
+                    <div class="pub-details">
+                        <h3 style="font-weight: normal; color: inherit;">
+    XY Liu, <strong style="font-weight: bold;">PT Zhang</strong>, C Guan* et al.. High intrinsic phase stability of ultrathin 2M WS₂. [J]. Nat. Commun., 2024, 15:1263. (co-first authors, XY Liu and C Guan are my supervisors)
+                         <a href="https://doi.org/10.1038/s41467-024-45676-3" target="_blank" style="color: #3498db; text-decoration: none;">doi.org/10.1038/s41467-024-45676-3</a>
+                         </h3>
+
+                        <div class="abstract">
+                            <p data-en="The 2M-to-2H phase transition temperature increases from 120°C to 210°C in air as thickness of WS₂ is reduced from bulk to bilayer. Monolayered 1T′ WS₂ can withstand temperatures up to 350°C in air before being oxidized, and up to 450°C in argon atmosphere before transforming to 1H phase. The higher stability of thinner 2M WS₂ is attributed to stiffened intralayer bonds, enhanced thermal conductivity and higher average barrier per layer during the layer(s)-by-layer(s) phase transition process. The observed high intrinsic phase stability can expand the practical applications of ultrathin 2M TMDs."
+                               data-zh="The 2M-to-2H phase transition temperature increases from 120°C to 210°C in air as thickness of WS₂ is reduced from bulk to bilayer. Monolayered 1T′ WS₂ can withstand temperatures up to 350°C in air before being oxidized, and up to 450°C in argon atmosphere before transforming to 1H phase. The higher stability of thinner 2M WS₂ is attributed to stiffened intralayer bonds, enhanced thermal conductivity and higher average barrier per layer during the layer(s)-by-layer(s) phase transition process. The observed high intrinsic phase stability can expand the practical applications of ultrathin 2M TMDs.">
+                               The 2M-to-2H phase transition temperature increases from 120°C to 210°C in air as thickness of WS₂ is reduced from bulk to bilayer. Monolayered 1T′ WS₂ can withstand temperatures up to 350°C in air before being oxidized, and up to 450°C in argon atmosphere before transforming to 1H phase. The higher stability of thinner 2M WS₂ is attributed to stiffened intralayer bonds, enhanced thermal conductivity and higher average barrier per layer during the layer(s)-by-layer(s) phase transition process. The observed high intrinsic phase stability can expand the practical applications of ultrathin 2M TMDs.
+                            </p>
+                        </div>
+
+                        <div class="contribution">
+                             <p data-en="<strong>My Contribution</strong>: Independently designed and executed all experiments, conducted complete characterization, data processing and illustration drawing, authored the manuscript draft and managed the entire submission-to-revision process."
+                               data-zh="<strong>我的贡献</strong>: 独立完成全部实验设计与操作，承担所有表征测试、数据处理及图表绘制工作，撰写论文初稿并全程负责投稿与修订事宜。"><strong>My Contribution</strong>: Independently designed and executed all experiments, conducted complete characterization, data processing and illustration drawing, authored the manuscript draft and managed the entire submission-to-revision process.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="patents">
+                       <h3 data-en="Patents" data-zh="专利">Patents</h3>
+                       <ol>
+                             <li data-en="XY Liu, JP Chen, C Guan, <strong>PT Zhang</strong>, NT Yang. A preparation method and application of single-layer MoS₂ and WS₂. CN116657246A [P]. 2023-08-29."
+                                  data-zh="刘向晔，陈继鹏，官操，<strong>张平婷</strong>，杨努特. 一种单层MoS₂和WS₂的制备方法及应用. CN116657246A [P]. 2023-08-29.">
+                                  XY Liu, JP Chen, C Guan, <strong>PT Zhang</strong>, NT Yang. A preparation method and application of single-layer MoS₂ and WS₂. CN116657246A [P]. 2023-08-29.
+                              </li>
+                              <li data-en="C Guan, <strong>PT Zhang</strong>, XY Liu, JP Chen. In-situ multi-field analysis and testing device, method and application of on-chip microelectrochemical cell. CN114384142A [P]. 2022-04-22."
+                                   data-zh="官操, <strong>张平婷</strong>, 刘向晔, 陈继鹏. 芯片基微电化学池原位多场分析测试装置、方法及应用: CN114384142A [P]. 2022-04-22.">
+                                    C Guan, <strong>PT Zhang</strong>, XY Liu, JP Chen. In-situ multi-field analysis and testing device, method and application of on-chip microelectrochemical cell. CN114384142A [P]. 2022-04-22.
+                                </li>
+                                <li data-en="XY Liu, JP Chen, C Guan, <strong>PT Zhang</strong>. Nanomaterial single crystal stress field coupling electrochemical testing device and method. CN114354726A [P]. 2022-04-15."
+                                    data-zh="刘向晔，陈继鹏，官操，<strong>张平婷</strong>. 纳米材料单晶应力场耦合电化学测试装置及方法. CN114354726A [P]. 2022-04-15.">
+                                    XY Liu, JP Chen, C Guan, <strong>PT Zhang</strong>. Nanomaterial single crystal stress field coupling electrochemical testing device and method. CN114354726A [P]. 2022-04-15.
+                                 </li>
+                           </ol>
+                   </div>
+            </section>
+
+            <!-- Honors and Awards -->
+            <section id="honors">
+                <h2>
+                    <span class="section-icon" style="color: #C7CEEA;">🏆</span>
+                    <span data-en="Honors and Awards" data-zh="荣誉与奖项">Honors and Awards</span>
+                </h2>
+                
+                <div class="awards-grid">
+                    <div class="award">
+                        <div class="award-details" style="padding-left: 15px;">
+                            <h3 data-en="2020-2023, Second-class Academic Scholarship of Northwestern Polytechnical University (3 times)" data-zh="2020-2023, 西北工业大学二等学业奖学金（3次）">2020-2023, Second-class Academic Scholarship of Northwestern Polytechnical University (3 times)</h3>
+                            <p data-en="Awarding Institution: Northwestern Polytechnical University" data-zh="颁发单位：西北工业大学">Awarding Institution: Northwestern Polytechnical University</p>
+                        </div>
+                    </div>
+                    
+                    <div class="award">
+                        <div class="award-image">
+                            <img src="images/awards/award1.jpg" alt="Award 1" loading="lazy">
+                        </div>
+                        <div class="award-details">
+                            <h3 data-en="2021, Outstanding Youth (top 5%)" data-zh="2021, 优秀共青团员（前1%）">2021, Outstanding Youth (top 5%)</h3>
+<p data-en="Awarding Institution: Communist Youth League Committee, China" data-zh="颁发单位：中国共青团委员会">Awarding Institution: Communist Youth League Committee, China</p> 
+                        </div>
+                    </div>
+                    
+                    <div class="award">
+                        <div class="award-image">
+                            <img src="images/awards/award2.jpg" alt="Award 2" loading="lazy">
+                        </div>
+                        <div class="award-details">
+                            <h3 data-en="2018, Merit Student (top 5%)" data-zh="2018, 三好学生（前5%）">2018, Merit Student (top 5%)</h3>
+<p data-en="Awarding Institution: Beijing University of Chemical Technology" data-zh="颁发单位：北京化工大学">Awarding Institution: Beijing University of Chemical Technology</p>
+                        </div>
+                    </div>
+                    
+                    <div class="award">
+                        <div class="award-image">
+                            <img src="images/awards/award3.jpg" alt="Award 3" loading="lazy">
+                        </div>
+                        <div class="award-details">
+                            <h3 data-en="2018, National Scholarship (top 2%)" data-zh="2018, 国家奖学金（前2%）">2018, National Scholarship (top 2%)</h3>
+<p data-en="Awarding Institution: Ministry of Education, China" data-zh="颁发单位：中国教育部">Awarding Institution: Ministry of Education, China</p>
+                        </div>
+                    </div>
+                    
+                    <div class="award">
+                        <div class="award-image">
+                            <img src="images/awards/award4.jpg" alt="Award 4" loading="lazy">
+                        </div>
+                        <div class="award-details">
+                            <h3 data-en="2018, Third Prize in English Speech Contest" data-zh="2018, 英语演讲比赛三等奖">2018, Third Prize in English Speech Contest</h3>
+<p data-en="Awarding Institution: Beijing University of Chemical Technology" data-zh="颁发单位：北京化工大学">Awarding Institution: Beijing University of Chemical Technology</p>
+                        </div>
+                    </div>
+
+                     <div class="award">
+                        <div class="award-image"> 
+                            <img src="images/awards/award5.jpg" alt="Award 5" loading="lazy">
+                        </div>
+                        <div class="award-details">
+                            <h3 data-en="2017, Outstanding Student (top 5%)" data-zh="2017, 优秀生（前5%）">2017, Outstanding Student (top 5%)</h3>
+                            <p data-en="Awarding Institution: Beijing University of Chemical Technology" data-zh="颁发单位：北京化工大学">Awarding Institution: Beijing University of Chemical Technology</p>
+                        </div>
+                    </div>
+
+                    <div class="award">
+                        <div class="award-image">
+                            <img src="images/awards/award6.jpg" alt="Award 6" loading="lazy">
+                        </div>
+                        <div class="award-details">
+                            <h3 data-en="2017, Sunshine Elastomer Second-Class Scholarship (top 5%)" data-zh="2017, 阳光弹性体二等奖学金（前5%）">2017, Sunshine Elastomer Second-Class Scholarship (top 5%)</h3>
+                            <p data-en="Awarding Institution: Beijing University of Chemical Technology" data-zh="颁发单位：北京化工大学">Awarding Institution: Beijing University of Chemical Technology</p>
+                        </div>
+                    </div>
+
+                    <div class="award">
+                        <div class="award-image">
+                            <img src="images/awards/award7.jpg" alt="Award 7" loading="lazy">
+                        </div>
+                        <div class="award-details">
+                            <h3 data-en="2017, Renmin Scholarship (top 5%)" data-zh="2017, 人民奖学金（前5%）">2017, Renmin Scholarship (top 5%)</h3>
+                            <p data-en="Awarding Institution: Beijing University of Chemical Technology" data-zh="颁发单位：北京化工大学">Awarding Institution: Beijing University of Chemical Technology</p>
+                        </div>
+                    </div>
+
+                    <div class="award">
+                        <div class="award-image">
+                            <img src="images/awards/award8.jpg" alt="Award 8" loading="lazy">
+                        </div>
+                        <div class="award-details">
+                            <h3 data-en="2016, Renmin Special Category Scholarship (top 5%)" data-zh="2016, 单项人民奖学金（前5%）">2016, Renmin Special Category Scholarship (top 5%)</h3>
+                            <p data-en="Awarding Institution: Beijing University of Chemical Technology" data-zh="颁发单位：北京化工大学">Awarding Institution: Beijing University of Chemical Technology</p>
+                        </div>
+                    </div>
+
+                    <div class="award">
+                        <div class="award-image">
+                            <img src="images/awards/award9.jpg" alt="Award 9" loading="lazy">
+                        </div>
+                        <div class="award-details">
+                            <h3 data-en="2016, Renmin Scholarship (top 5%)" data-zh="2016, 人民奖学金（前5%）">2016, Renmin Scholarship (top 5%)</h3>
+                            <p data-en="Awarding Institution: Beijing University of Chemical Technology" data-zh="颁发单位：北京化工大学">Awarding Institution: Beijing University of Chemical Technology</p>
+                        </div>
+                    </div>
+
+                    <div class="award">
+                        <div class="award-image">
+                            <img src="images/awards/award10.jpg" alt="Award 10" loading="lazy">
+                        </div>
+                        <div class="award-details">
+                            <h3 data-en="2014, Outstanding Graduate (top 4%)" data-zh="2014, 优秀毕业生（前4%）">2014, Outstanding Graduate (top 4%)</h3>
+<p data-en="Awarding Institution: Minle YiZhong (High School)" data-zh="颁发单位：民乐一中（高中）">Awarding Institution: Minle YiZhong (High School)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Activities -->
+            <section id="activities">
+                <h2>
+                    <span class="section-icon" style="color: #F8B195;">🌐</span>
+                    <span data-en="Activities" data-zh="活动经历">Activities</span>
+                </h2>
+                
+                <div class="activity">
+                    <h3 data-en="2021-2023, Yikun Elite Leadership Programme, Northwestern Polytechnical University, Class Monitor"
+                        data-zh="2021-2023, 西北工业大学研究生领军人才计划-翼鲲计划，担任班长">
+                        2021-2023, Yikun Elite Leadership Programme, Northwestern Polytechnical University, Class Monitor
+                    </h3>
+                    <p data-en="As class monitor of NWPU's prestigious Yikun Program selected through competitive interviews, I led 50+ postgraduates in professional development initiatives including corporate visits to Huawei, BYD and satellite launch centers. During the pandemic, I pioneered a virtual international New Year gala connecting Chinese and overseas students, while also organizing Winter Olympics promotion campaigns. Our study tours covered five major cities and workshops ranged from public speaking to floristry."
+                       data-zh="通过严格选拔担任西北工业大学翼鲲计划班长，带领50余名研究生培养多样化和综合化素养。包括组织参访华为、比亚迪及卫星发射中心等企业。疫情期间创新策划连接中外学生的线上元旦晚会，并开展冬奥会宣传活动。组织覆盖五个城市的实践考察，举办口才演讲、插花艺术等多样化课程。">
+                       As class monitor of NWPU's prestigious Yikun Program selected through competitive interviews, I led 50+ postgraduates in professional development initiatives including corporate visits to Huawei, BYD and satellite launch centers. During the pandemic, I pioneered a virtual international New Year gala connecting Chinese and overseas students, while also organizing Winter Olympics promotion campaigns. Our study tours covered five major cities and workshops ranged from public speaking to floristry.
+                    </p>
+                    <div class="activity-images-container">
+                        <div class="activity-images">
+                            <div class="activity-image">
+                                <img src="images/activities/activities1.jpg" alt="Activities 1" loading="lazy">
+                            </div>
+                            <div class="activity-image">
+                                <img src="images/activities/activities2.jpg" alt="Activities 2" loading="lazy">
+                            </div>
+                            <div class="activity-image">
+                                <img src="images/activities/activities3.jpg" alt="Activities 3" loading="lazy">
+                            </div>
+                            <div class="activity-image">
+                                <img src="images/activities/activities4.jpg" alt="Activities 4" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="activity">
+                    <h3 data-en=" 2016-2019, Undergraduate Mentor, Beijing University of Chemical Technology"
+                        data-zh="2016-2019，宿舍学姐，北京化工大学">
+                        2016-2019, Undergraduate Mentor, Beijing University of Chemical Technology
+                    </h3>
+                    <p data-en="As a mentor selected through BUCT's competitive program, I provided comprehensive four-year guidance for six freshmen. This included: 1) Academic support through customized study plans and course selection advice; 2) Personal development guidance via regular one-on-one meetings to address adaptation challenges; 3) Group activities to build peer connections; 4) Monthly sharing sessions for experience exchange."
+       data-zh="通过学校选拔成为新生导师，为六名本科生提供四年全程指导，包括：1）制定个性化学习方案与选课指导；2）定期一对一交流解决适应问题；3）组织团体活动建立同伴关系；4）举办月度分享会交流经验。">
+                       As a mentor selected through BUCT's competitive program, I provided comprehensive four-year guidance for six freshmen. This included: 1) Academic support through customized study plans and course selection advice; 2) Personal development guidance via regular one-on-one meetings to address adaptation challenges; 3) Group activities to build peer connections; 4) Monthly sharing sessions for experience exchange.
+                    </p>
+                    <div class="activity-images-container">
+                        <div class="activity-images">
+                            <div class="activity-image">
+                                <img src="images/activities/activities5.jpg" alt="Poster Presentation" loading="lazy">
+                            </div>
+                            <div class="activity-image">
+                                <img src="images/activities/activities6.jpg" alt="Award Ceremony" loading="lazy">
+                            </div>
+                            <div class="activity-image">
+                                <img src="images/activities/activities7.jpg" alt="Discussion with Researchers" loading="lazy">
+                            </div>
+                            <div class="activity-image">
+                                <img src="images/activities/activities8.jpg" alt="Conference Venue" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="activity">
+                    <h3 data-en="2015-2023, Extracurricular Activities and Volunteer Service"
+                        data-zh="2015-2023, 课外活动与公益志愿">
+                        2015-2023, Extracurricular Activities and Volunteer Service
+                    </h3>
+                    <p data-en="My volunteer work includes serving as bilingual staff at the 2019 Asian Civilizations Dialogue Conference in Beijing's Bird's Nest stadium, participating in the 15th Import-Export Forum at the NPC Conference Center, and contributing to rural revitalization projects in my hometown through historical preservation and infrastructure improvement. Regularly participating in volunteer activities including nursing home visits, international walking events, and the 'Blue Dove Letters' program supporting left-behind children."
+                       data-zh="2019年作为双语工作人员参与鸟巢亚洲文明对话大会，2019年在全国人大会议中心协助第15届进出口论坛，2017年参与家乡历史保护与基础设施改善的新农村建设项目。定期参与敬老院服务，国际长走大会等志愿活动和留守儿童"蓝鸽书信"的公益活动。">
+                       My volunteer work includes serving as bilingual staff at the 2019 Asian Civilizations Dialogue Conference in Beijing's Bird's Nest stadium, participating in the 15th Import-Export Forum at the NPC Conference Center, and contributing to rural revitalization projects in my hometown through historical preservation and infrastructure improvement. Regularly participating in volunteer activities including nursing home visits, international walking events, and the 'Blue Dove Letters' program supporting left-behind children.
+                    </p>
+                    <div class="activity-images-container">
+                        <div class="activity-images">
+                            <div class="activity-image">
+                                <img src="images/activities/activities9.jpg" alt="Symposium Organization" loading="lazy">
+                            </div>
+                            <div class="activity-image">
+                                <img src="images/activities/activities10.jpg" alt="Presentation" loading="lazy">
+                            </div>
+                            <div class="activity-image">
+                                <img src="images/activities/activities11.jpg" alt="Panel Discussion" loading="lazy">
+                            </div>
+                            <div class="activity-image">
+                                <img src="images/activities/activities12.jpg" alt="Networking" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div id="imageViewer" class="image-viewer">
+        <span class="close-btn">&times;</span>
+        <img class="viewer-content" id="expandedImg">
+        <div id="imgCaption"></div>
+    </div>
+    <script>
+        // Language toggle functionality
+        let currentLanguage = 'en';
+        const languageToggle = document.getElementById('languageToggle');
+        
+       function toggleLanguage() {
+    currentLanguage = currentLanguage === 'en' ? 'zh' : 'en';
+    updatePageLanguage();
+}
+
+function updatePageLanguage() {
+    // Update toggle button text
+    languageToggle.textContent = currentLanguage === 'en' ? '中文' : 'English';
+    
+    // Update all elements with data attributes
+    document.querySelectorAll('[data-en], [data-zh]').forEach(element => {
+        const content = currentLanguage === 'en' 
+            ? (element.getAttribute('data-en') || element.textContent)
+            : (element.getAttribute('data-zh') || element.textContent);
+        
+        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            element.value = content;
+        } else {
+            element.innerHTML = content;
+        }
+    });
+}
+        
+        languageToggle.addEventListener('click', toggleLanguage);
+
+// 图片查看器功能
+function setupImageViewer() {
+    const imageViewer = document.getElementById("imageViewer");
+    const expandedImg = document.getElementById("expandedImg");
+    const captionText = document.getElementById("imgCaption");
+    const closeBtn = document.querySelector(".close-btn");
+    
+    // 获取所有需要放大的图片
+    const images = document.querySelectorAll(".project-image, .award-image img, .activity-image img");
+    
+    // 为每张图片添加点击事件
+    images.forEach(img => {
+        img.onclick = function() {
+            imageViewer.style.display = "block";
+            expandedImg.src = this.src;
+            captionText.innerHTML = this.alt || "图片描述";
+            
+            // 阻止事件冒泡
+            if (window.event) {
+                window.event.cancelBubble = true;
+            } else {
+                event.stopPropagation();
+            }
+        };
+    });
+    
+    // 关闭按钮点击事件
+    closeBtn.onclick = function() {
+        imageViewer.style.display = "none";
+    };
+    
+    // 点击模态框背景也关闭
+    imageViewer.onclick = function(event) {
+        if (event.target === imageViewer) {
+            imageViewer.style.display = "none";
+        }
+    };
+    
+    // 按ESC键关闭
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape") {
+            imageViewer.style.display = "none";
+        }
+    });
+}
+
+// 防下载代码
+document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+
+document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+
+// 初始化
+window.onload = function() {
+    updatePageLanguage();  // 语言切换初始化
+    setupImageViewer();    // 图片查看器初始化
+    
+};
+    </script>
+</body>
+</html>
